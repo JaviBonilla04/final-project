@@ -5,6 +5,7 @@ public class MainMenu : MonoBehaviour
 {
     public void OnPlayButton()
     {
+        AudioManager.Instance?.PlaySFX(AudioManager.Instance.uiClickSFX);
         if (GameManager.Instance != null)
             GameManager.Instance.StartGame();
         else
@@ -13,6 +14,7 @@ public class MainMenu : MonoBehaviour
 
     public void OnQuitButton()
     {
+        AudioManager.Instance?.PlaySFX(AudioManager.Instance.uiClickSFX);
         if (GameManager.Instance != null)
             GameManager.Instance.QuitGame();
         else

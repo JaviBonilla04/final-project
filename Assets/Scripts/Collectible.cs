@@ -8,6 +8,7 @@ public class Collectible : MonoBehaviour
     {
         if (other.GetComponent<PlayerController>() != null)
         {
+            AudioManager.Instance?.PlaySFX(AudioManager.Instance.collectSFX);
             if (GameManager.Instance != null)
                 GameManager.Instance.AddScore(value);
             Destroy(gameObject);

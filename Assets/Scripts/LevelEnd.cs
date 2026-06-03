@@ -8,6 +8,7 @@ public class LevelEnd : MonoBehaviour
         {
             //Debug.Log("LEVEL COMPLETE!");
             // En M3 conectamos con GameManager.Instance.WinGame()
+            AudioManager.Instance?.PlaySFX(AudioManager.Instance.winSFX);
             if (GameManager.Instance != null)
                 GameManager.Instance.WinGame();
         }

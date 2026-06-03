@@ -61,6 +61,9 @@ public class PlayerController : MonoBehaviour
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             coyoteTimeCounter = 0f;
             jumpBufferCounter = 0f;
+
+            AudioManager.Instance?.PlaySFX(AudioManager.Instance.jumpSFX);
+
         }
 
         if (jumpAction.WasReleasedThisFrame() && rb.linearVelocity.y > 0f)
@@ -73,6 +76,8 @@ public class PlayerController : MonoBehaviour
     {
         rb.linearVelocity = Vector2.zero;
         transform.position = spawnPoint.position;
+
+        AudioManager.Instance?.PlaySFX(AudioManager.Instance.dieSFX);
 
         if (GameManager.Instance != null)
             GameManager.Instance.PlayerDied();
