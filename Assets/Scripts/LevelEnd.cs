@@ -6,8 +6,10 @@ public class LevelEnd : MonoBehaviour
     {
         if (other.GetComponent<PlayerController>() != null)
         {
-            Debug.Log("LEVEL COMPLETE!");
+            //Debug.Log("LEVEL COMPLETE!");
             // En M3 conectamos con GameManager.Instance.WinGame()
+            if (GameManager.Instance != null)
+                GameManager.Instance.WinGame();
         }
     }
 }

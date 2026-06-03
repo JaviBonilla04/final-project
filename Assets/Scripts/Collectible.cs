@@ -8,7 +8,8 @@ public class Collectible : MonoBehaviour
     {
         if (other.GetComponent<PlayerController>() != null)
         {
-            // Por ahora solo destruye. El score lo conectamos en M4 con el GameManager.
+            if (GameManager.Instance != null)
+                GameManager.Instance.AddScore(value);
             Destroy(gameObject);
         }
     }

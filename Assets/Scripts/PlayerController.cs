@@ -73,6 +73,9 @@ public class PlayerController : MonoBehaviour
     {
         rb.linearVelocity = Vector2.zero;
         transform.position = spawnPoint.position;
+
+        if (GameManager.Instance != null)
+            GameManager.Instance.PlayerDied();
     }
 
     private void OnDrawGizmosSelected()
