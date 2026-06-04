@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour
     private float coyoteTimeCounter;
     private float jumpBufferCounter;
 
+    private float deathCooldown = 0f;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -41,6 +43,9 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+
+        if (deathCooldown > 0f) deathCooldown -= Time.deltaTime;
+
         isGrounded = Physics2D.OverlapBox(groundCheck.position, groundCheckSize, 0f, groundLayer);
 
         if (isGrounded)
@@ -74,6 +79,9 @@ public class PlayerController : MonoBehaviour
 
     public void Die()
     {
+        if (deathCooldown > 0f) return; // ignora si ya murió recientemente
+        deathCooldown = 0.3f;
+
         rb.linearVelocity = Vector2.zero;
         transform.position = spawnPoint.position;
 
