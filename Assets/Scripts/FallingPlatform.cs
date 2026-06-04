@@ -20,7 +20,7 @@ public class FallingPlatform : MonoBehaviour
     {
         if (other.gameObject.GetComponent<PlayerController>() != null && !isFalling)
         {
-            // Solo activa si el player está encima
+            // Solo activa si player encima
             if (other.transform.position.y > transform.position.y)
                 StartCoroutine(FallRoutine());
         }
@@ -37,8 +37,8 @@ public class FallingPlatform : MonoBehaviour
 
     private void Respawn()
     {
-        rb.bodyType = RigidbodyType2D.Static;
-        rb.linearVelocity = Vector2.zero;
+        rb.linearVelocity = Vector2.zero; 
+        rb.bodyType = RigidbodyType2D.Static; 
         transform.position = startPosition;
         isFalling = false;
     }

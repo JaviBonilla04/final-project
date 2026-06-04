@@ -86,7 +86,7 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("IsGrounded", isGrounded);
         animator.SetFloat("yVelocity", rb.linearVelocity.y);
 
-        // Flip del sprite según dirección:
+        // Flip del sprite
         if (horizontalInput > 0.01f)
             spriteRenderer.flipX = false;
         else if (horizontalInput < -0.01f)
@@ -95,7 +95,7 @@ public class PlayerController : MonoBehaviour
 
     public void Die()
     {
-        if (deathCooldown > 0f) return; // ignora si ya murió recientemente
+        if (deathCooldown > 0f) return; 
         deathCooldown = 0.3f;
 
         rb.linearVelocity = Vector2.zero;

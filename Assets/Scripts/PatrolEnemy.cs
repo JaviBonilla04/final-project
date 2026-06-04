@@ -23,10 +23,8 @@ public class PatrolEnemy : MonoBehaviour
     private void Update()
     {
 
-        // Raycast hacia abajo desde el frente — detecta si hay suelo adelante
         bool groundAhead = Physics2D.Raycast(edgeCheck.position, Vector2.down, 0.5f, groundLayer);
 
-        // OverlapCircle para detectar paredes adelante
         bool wallAhead = Physics2D.OverlapCircle(wallCheck.position, checkRadius, groundLayer);
 
         Debug.Log($"groundAhead: {groundAhead}, wallAhead: {wallAhead}");
@@ -40,7 +38,7 @@ public class PatrolEnemy : MonoBehaviour
 
     private void Flip()
     {
-        if (Time.time - lastFlipTime < 0.2f) return; // cooldown
+        if (Time.time - lastFlipTime < 0.2f) return; 
         lastFlipTime = Time.time;
         movingRight = !movingRight;
         Vector3 s = transform.localScale;

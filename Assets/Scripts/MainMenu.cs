@@ -9,7 +9,7 @@ public class MainMenu : MonoBehaviour
         if (GameManager.Instance != null)
             GameManager.Instance.StartGame();
         else
-            SceneManager.LoadScene("Level1"); // fallback
+            SceneManager.LoadScene("Level1"); 
     }
 
     public void OnQuitButton()
