@@ -30,8 +30,14 @@ public class PlayerController : MonoBehaviour
 
     private float deathCooldown = 0f;
 
+
+    private Animator animator;
+    private SpriteRenderer spriteRenderer;
+
     private void Awake()
     {
+        animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -75,6 +81,16 @@ public class PlayerController : MonoBehaviour
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.y * jumpCutMultiplier);
         }
+
+        animator.SetFloat("Speed", Mathf.Abs(horizontalInput));
+        animator.SetBool("IsGrounded", isGrounded);
+        animator.SetFloat("yVelocity", rb.linearVelocity.y);
+
+        // Flip del sprite según dirección:
+        if (horizontalInput > 0.01f)
+            spriteRenderer.flipX = false;
+        else if (horizontalInput < -0.01f)
+            spriteRenderer.flipX = true;
     }
 
     public void Die()
