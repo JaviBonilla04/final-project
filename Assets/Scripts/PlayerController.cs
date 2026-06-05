@@ -95,7 +95,7 @@ public class PlayerController : MonoBehaviour
 
     public void Die()
     {
-        if (deathCooldown > 0f) return; 
+        if (deathCooldown > 0f) return;
         deathCooldown = 0.3f;
 
         rb.linearVelocity = Vector2.zero;
